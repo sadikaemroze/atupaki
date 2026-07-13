@@ -5,11 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dear Atika Sona - Eternal Love & Apology 🌌💖</title>
     
-    <!-- CSS Dependencies -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Premium Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Hind+Siliguri:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Pacifico&family=Playfair+Display:ital,wght=0,600;0,800;1,400&display=swap" rel="stylesheet">
     
     <style>
@@ -19,81 +17,91 @@
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
-        .font-love { font-family: 'Pacifico', cursive; }
-        .font-sweet { font-family: 'Dancing Script', cursive; }
-        .font-bengali { font-family: 'Hind Siliguri', sans-serif; }
-        .font-premium { font-family: 'Playfair Display', serif; }
-        
-        .neon-glow-pink { box-shadow: 0 0 35px rgba(244, 63, 94, 0.45); }
-        .neon-glow-gold { box-shadow: 0 0 30px rgba(234, 179, 8, 0.4); }
+        .font-love {
+            font-family: 'Pacifico', cursive;
+        }
+        .font-sweet {
+            font-family: 'Dancing Script', cursive;
+        }
+        .font-bengali {
+            font-family: 'Hind Siliguri', sans-serif;
+        }
+        .font-premium {
+            font-family: 'Playfair Display', serif;
+        }
+        .neon-glow-pink {
+            box-shadow: 0 0 35px rgba(244, 63, 94, 0.4);
+        }
+        .neon-glow-gold {
+            box-shadow: 0 0 30px rgba(234, 179, 8, 0.35);
+        }
         .gold-border {
             border: 2px solid rgba(234, 179, 8, 0.4);
             background: linear-gradient(135deg, rgba(234, 179, 8, 0.1) 0%, rgba(253, 224, 71, 0.05) 100%);
         }
-        
+        .rose-border {
+            border: 2px solid rgba(244, 63, 94, 0.4);
+            background: linear-gradient(135deg, rgba(244, 63, 94, 0.1) 0%, rgba(251, 113, 133, 0.05) 100%);
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(0.8) rotate(0deg); }
+            50% { opacity: 1; transform: scale(1.2) rotate(180deg); }
+        }
+        .animate-twinkle {
+            animation: twinkle 5s infinite ease-in-out;
+        }
         @keyframes float-gentle {
             0%, 100% { transform: translateY(0px) rotate(-1deg); }
             50% { transform: translateY(-12px) rotate(1.5deg); }
         }
-        .float-gentle { animation: float-gentle 7s infinite ease-in-out; }
-        
+        .float-gentle {
+            animation: float-gentle 7s infinite ease-in-out;
+        }
         @keyframes pulse-gold {
             0%, 100% { transform: scale(1); filter: drop-shadow(0 0 5px rgba(234,179,8,0.5)); }
             50% { transform: scale(1.05); filter: drop-shadow(0 0 20px rgba(234,179,8,0.9)); }
         }
-        .pulse-gold-glow { animation: pulse-gold 3s infinite ease-in-out; }
-        
+        .pulse-gold-glow {
+            animation: pulse-gold 3s infinite ease-in-out;
+        }
         .glass-card {
-            background: rgba(15, 10, 31, 0.7);
+            background: rgba(15, 10, 31, 0.65);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
-        
-        /* Custom scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #05020c; }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #05020c;
+        }
         ::-webkit-scrollbar-thumb {
-            background: rgba(244, 63, 94, 0.35);
+            background: rgba(244, 63, 94, 0.3);
             border-radius: 999px;
         }
-        ::-webkit-scrollbar-thumb:hover { background: rgba(244, 63, 94, 0.6); }
-
-        /* Game specific stylings */
-        .scratch-container {
-            position: relative;
-            width: 100%;
-            height: 160px;
-            user-select: none;
-            -webkit-user-select: none;
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(244, 63, 94, 0.6);
         }
-        .scratch-canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            cursor: pointer;
-            z-index: 10;
+        .wheel-segment {
+            transform-origin: 50% 50%;
         }
-        
-        .petal {
-            transition: all 0.5s ease;
-            transform-origin: bottom center;
+        @keyframes drift {
+            0%, 100% { transform: rotate(-3deg) translateY(0); }
+            50% { transform: rotate(5deg) translateY(-8px); }
         }
-        .petal:hover {
-            filter: brightness(1.2);
-            transform: scale(1.05);
+        .bottle-drift {
+            animation: drift 4s infinite ease-in-out;
         }
     </style>
 </head>
 <body class="min-h-screen flex flex-col items-center justify-between relative text-white">
 
-    <!-- Ambient Starry Canvas Background -->
     <canvas id="starryCanvas" class="fixed top-0 left-0 w-full h-full pointer-events-none z-0"></canvas>
 
     <div class="fixed top-1/4 left-1/4 w-96 h-96 bg-pink-900/10 rounded-full blur-[120px] pointer-events-none z-0"></div>
     <div class="fixed bottom-1/4 right-1/4 w-96 h-96 bg-indigo-900/15 rounded-full blur-[150px] pointer-events-none z-0"></div>
 
-    <!-- Music/Audio Console Quick Access -->
     <div class="fixed top-4 right-4 z-50">
         <button onclick="toggleMusicConsole()" class="w-12 h-12 bg-gradient-to-r from-pink-500 to-amber-500 hover:from-pink-600 hover:to-amber-600 rounded-full flex items-center justify-center shadow-lg hover:scale-105 active:scale-95 transition-all text-white relative">
             <span class="absolute -top-1 -right-1 flex h-3 w-3">
@@ -104,7 +112,6 @@
         </button>
     </div>
 
-    <!-- Main Container -->
     <main class="w-full max-w-lg px-4 py-8 z-10 flex flex-col gap-10 relative">
 
         <header class="text-center mt-6 relative">
@@ -123,7 +130,6 @@
             </div>
         </header>
 
-        <!-- Polaroid photo section -->
         <section class="relative flex flex-col items-center">
             <div class="w-0.5 h-14 bg-gradient-to-b from-transparent via-amber-400 to-amber-200/50"></div>
             <div class="w-8 h-8 rounded-full bg-gradient-to-br from-amber-300 via-yellow-500 to-amber-600 -mt-2 shadow-xl z-20 flex items-center justify-center border border-amber-200/50 animate-pulse">
@@ -133,14 +139,15 @@
             <div class="bg-white text-gray-800 p-5 pb-8 rounded-lg shadow-[0_20px_50px_rgba(244,63,94,0.3)] rotate-2 float-gentle z-10 w-72 max-w-full hover:rotate-0 transition-transform duration-700 transform origin-top gold-border">
                 
                 <div class="aspect-square w-full bg-slate-950 relative overflow-hidden shadow-inner group border border-slate-200 rounded">
+                    <!-- Targeted atika.jpg image -->
                     <img id="atikaImage" src="atika.jpg" alt="Atika Sona" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" onerror="handleImageError(this)">
                     
                     <div id="imageFallback" class="hidden absolute inset-0 flex flex-col items-center justify-center p-6 text-center bg-gradient-to-br from-slate-950 via-indigo-950 to-purple-950 text-indigo-200">
                         <div class="w-16 h-16 rounded-full bg-pink-500/15 flex items-center justify-center mb-3 border border-pink-500/30">
-                            <i class="fa-solid fa-heart text-pink-400 text-3xl animate-pulse"></i>
+                            <i class="fa-solid fa-heart-crack text-pink-400 text-3xl animate-pulse"></i>
                         </div>
                         <p class="text-xs font-semibold tracking-wide text-white uppercase mb-1">Waiting for Atika's Photo</p>
-                        <p class="text-[10px] text-indigo-300 px-2 leading-relaxed">Tap the premium button below to upload your beautiful photo (atika.jpg)!</p>
+                        <p class="text-[10px] text-indigo-300 px-2 leading-relaxed">Tap the premium button below to choose and upload your beautiful photo (atika.jpg)!</p>
                     </div>
                 </div>
 
@@ -156,136 +163,6 @@
                     Upload My Atika's Photo
                 </label>
                 <input type="file" id="imageUpload" accept="image/*" class="hidden" onchange="previewImage(event)">
-            </div>
-        </section>
-
-        <section class="glass-card rounded-2xl p-6 border-2 border-pink-500/30 shadow-[0_0_25px_rgba(244,63,94,0.2)] relative overflow-hidden">
-            <div class="absolute -right-6 -bottom-6 text-pink-500/10 text-9xl pointer-events-none transform rotate-12">
-                <i class="fa-solid fa-lips"></i>
-            </div>
-            
-            <div class="text-center mb-5">
-                <span class="px-3 py-1 bg-gradient-to-r from-pink-500/20 to-red-500/20 text-pink-300 text-[10px] font-bold uppercase tracking-widest rounded-full border border-pink-500/40">💖 Atika's Ultimate Romance Corner 💖</span>
-                <h3 class="text-2xl font-bold font-premium text-yellow-200 mt-3">Atika's Virtual Kiss Chamber 💋</h3>
-                <p class="text-xs text-indigo-200 mt-1">কন্ট্রোল করো চুমুর তীব্রতা এবং পাঠিয়ে দাও তোমার জানকে সীমাহীন আদর!</p>
-            </div>
-
-            <!-- Kiss Intensity Slider -->
-            <div class="bg-gradient-to-br from-indigo-950/70 to-purple-950/40 p-4 rounded-xl border border-pink-500/20 mb-5">
-                <label class="block text-xs font-bold text-amber-300 uppercase tracking-wider mb-2 text-center">
-                    💋 Select Kiss Intensity (চুমুর তীব্রতা):
-                </label>
-                <input type="range" id="kissRange" min="1" max="5" value="3" class="w-full accent-pink-500 cursor-pointer" oninput="updateKissPreview()">
-                
-                <div class="mt-4 text-center min-h-[50px] flex flex-col justify-center">
-                    <span id="kissIntensityBadge" class="inline-block px-3 py-1 bg-pink-500/20 text-pink-300 text-xs font-bold rounded-full mb-1">Level 3: Neck Nuzzle Kiss</span>
-                    <p id="kissIntensityText" class="text-sm font-bengali text-white font-semibold italic">"গলায় মুখ লুকিয়ে জড়িয়ে ধরে পরম মমতায় গভীর চুমু! 🧣"</p>
-                </div>
-            </div>
-
-            <!-- Action Buttons -->
-            <div class="flex flex-col gap-3">
-                <button onclick="sendVirtualKiss()" class="w-full py-3.5 bg-gradient-to-r from-pink-500 via-rose-500 to-red-500 hover:from-pink-600 hover:to-red-600 text-white rounded-xl text-sm font-extrabold shadow-lg hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-2 border border-pink-300/30">
-                    <span class="text-lg">💋</span> Send Selected Kiss (চুমু পাঠাও সোনাকে!)
-                </button>
-                <div class="grid grid-cols-2 gap-3">
-                    <button onclick="triggerRomanceEffect('hug')" class="py-2.5 bg-indigo-950/80 hover:bg-indigo-900 border border-indigo-500/30 hover:border-indigo-400 text-xs font-bold rounded-xl transition-all flex items-center justify-center gap-1.5">
-                        <span>🤗</span> Virtual Warm Hug
-                    </button>
-                    <button onclick="triggerRomanceEffect('forehead')" class="py-2.5 bg-purple-950/80 hover:bg-purple-900 border border-purple-500/30 hover:border-purple-400 text-xs font-bold rounded-xl transition-all flex items-center justify-center gap-1.5">
-                        <span>👶❤️</span> Respect Forehead Kiss
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <section class="glass-card rounded-2xl p-6 border-2 border-amber-400/30 shadow-[0_0_25px_rgba(234,179,8,0.15)] relative">
-            <div class="text-center mb-5">
-                <span class="px-3 py-1 bg-amber-400/10 text-amber-300 text-[10px] font-bold uppercase tracking-widest rounded-full border border-amber-400/30">🎡 Play & Bond 🎡</span>
-                <h3 class="text-xl font-bold font-premium text-yellow-200 mt-2">Atika's 5 Romantic Mini-Games 🎮</h3>
-                <p class="text-xs text-indigo-200 mt-1">নিচের ট্যাবগুলো থেকে খেলা সিলেক্ট করো এবং আমাদের ভালোবাসাকে করো আরও গভীর!</p>
-            </div>
-
-            <!-- Game Tabs Selector -->
-            <div class="flex gap-1 overflow-x-auto pb-2 scrollbar-none border-b border-slate-800 mb-4 justify-start sm:justify-center">
-                <button onclick="switchGameTab(1)" id="tabBtn1" class="px-3 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap bg-amber-500/20 text-amber-300 border border-amber-500/30">🌹 Petal Plucker</button>
-                <button onclick="switchGameTab(2)" id="tabBtn2" class="px-3 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap bg-slate-900 text-slate-400 hover:bg-slate-800">🤫 Secret Scratch</button>
-                <button onclick="switchGameTab(3)" id="tabBtn3" class="px-3 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap bg-slate-900 text-slate-400 hover:bg-slate-800">💝 Heart Catcher</button>
-                <button onclick="switchGameTab(4)" id="tabBtn4" class="px-3 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap bg-slate-900 text-slate-400 hover:bg-slate-800">🧩 Love Match</button>
-                <button onclick="switchGameTab(5)" id="tabBtn5" class="px-3 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap bg-slate-900 text-slate-400 hover:bg-slate-800">👄 Catch Kiss</button>
-            </div>
-
-            <!-- Game 1 Frame: Rose Petal Plucking -->
-            <div id="gameDiv1" class="game-content-panel block text-center py-4 bg-slate-950/60 rounded-xl border border-pink-500/10 p-4">
-                <h4 class="text-xs font-bold text-pink-300 uppercase tracking-widest mb-1">Game 1: Rose Petal Plucker 🌹</h4>
-                <p class="text-[11px] text-slate-300 mb-4 font-bengali">একটি একটি করে গোলাপের পাপড়িতে ক্লিক করে ছিঁড়ে ফেলো ও শেষ ভাগ্য দেখ!</p>
-                
-                <div class="relative w-40 h-40 mx-auto flex items-center justify-center">
-                    <!-- Stem -->
-                    <div class="absolute bottom-0 w-2 h-20 bg-emerald-600 rounded-t"></div>
-                    <div class="absolute bottom-8 left-1/2 w-8 h-4 bg-emerald-500 rounded-full origin-left -rotate-30"></div>
-                    <!-- Petals -->
-                    <div id="petalCenter" class="absolute w-12 h-12 bg-red-600 rounded-full z-20 shadow-inner"></div>
-                    <button onclick="pluckPetal(this, 1)" class="petal absolute w-12 h-16 bg-gradient-to-t from-red-600 to-red-400 rounded-full z-10" style="transform: translate(0, -32px);"></button>
-                    <button onclick="pluckPetal(this, 2)" class="petal absolute w-16 h-12 bg-gradient-to-r from-red-600 to-red-400 rounded-full z-10" style="transform: translate(32px, 0);"></button>
-                    <button onclick="pluckPetal(this, 3)" class="petal absolute w-12 h-16 bg-gradient-to-b from-red-600 to-red-400 rounded-full z-10" style="transform: translate(0, 32px);"></button>
-                    <button onclick="pluckPetal(this, 4)" class="petal absolute w-16 h-12 bg-gradient-to-l from-red-600 to-red-400 rounded-full z-10" style="transform: translate(-32px, 0);"></button>
-                    <button onclick="pluckPetal(this, 5)" class="petal absolute w-14 h-14 bg-gradient-to-tr from-red-600 to-red-400 rounded-full z-10" style="transform: translate(22px, -22px);"></button>
-                    <button onclick="pluckPetal(this, 6)" class="petal absolute w-14 h-14 bg-gradient-to-bl from-red-600 to-red-400 rounded-full z-10" style="transform: translate(-22px, 22px);"></button>
-                </div>
-                
-                <div class="mt-4">
-                    <p id="petalPrediction" class="text-sm font-bengali font-bold text-yellow-300 italic">"পাপড়ি ছিঁড়ে তোমার জন্য আমার অনুভূতি পরীক্ষা করো..."</p>
-                </div>
-            </div>
-
-            <!-- Game 2 Frame: Secret Scratch Card -->
-            <div id="gameDiv2" class="game-content-panel hidden text-center py-4 bg-slate-950/60 rounded-xl border border-pink-500/10 p-4">
-                <h4 class="text-xs font-bold text-pink-300 uppercase tracking-widest mb-1">Game 2: Secret Scratch Card 🤫</h4>
-                <p class="text-[11px] text-slate-300 mb-3 font-bengali">কার্ডের ওপর আঙুল ঘষে আস্তরণটি মুছে ফেলো ও আমার পাঠানো গোপন কিস মেসেজটি উন্মোচন করো!</p>
-                <div class="scratch-container mx-auto max-w-[280px] bg-gradient-to-br from-indigo-950 to-purple-950 rounded-xl flex items-center justify-center overflow-hidden border border-amber-400/30 p-4 relative">
-                    <p class="text-sm font-bengali font-bold text-center text-pink-200 z-0">
-                        "আজ রাতে তোমাকে জড়িয়ে ধরে ১০০০টা চুমু খাব সোনা পাকি! রেডি থেকো! 💋🛌✨"
-                    </p>
-                    <canvas id="scratchCanvas" class="scratch-canvas w-full h-full rounded-xl"></canvas>
-                </div>
-                <button onclick="resetScratchCard()" class="mt-3 px-4 py-1.5 bg-pink-500/20 text-pink-300 text-xs font-bold rounded-full border border-pink-500/30 hover:bg-pink-500/30 transition-all">Reset Card</button>
-            </div>
-
-            <!-- Game 3 Frame: Atika's Heart Catcher -->
-            <div id="gameDiv3" class="game-content-panel hidden text-center py-4 bg-slate-950/60 rounded-xl border border-pink-500/10 p-4">
-                <h4 class="text-xs font-bold text-pink-300 uppercase tracking-widest mb-1">Game 3: Atika's Heart Catcher 💝</h4>
-                <p class="text-[11px] text-slate-300 mb-3 font-bengali">নিচের ডানে বামে বাটন দিয়ে ঝুড়ি সরিয়ে উপর থেকে পড়া কিস ও লাভ লুফে নাও! (টার্গেট: ১০)</p>
-                
-                <div class="relative w-full h-44 bg-slate-900 rounded-xl overflow-hidden border border-slate-700 mx-auto max-w-[280px]" id="catcherArea">
-                    <span id="catcherScore" class="absolute top-2 left-2 text-[10px] bg-slate-950 px-2 py-0.5 rounded font-mono">CATCHES: 0/10</span>
-                    <div id="catcherBasket" class="absolute bottom-2 left-1/2 -translate-x-1/2 text-2xl">👑</div>
-                    <div id="fallingItem" class="absolute top-0 text-xl" style="left: 45%; top: 0px;">💖</div>
-                </div>
-                
-                <div class="flex justify-center gap-4 mt-3">
-                    <button onclick="moveBasket(-25)" class="px-5 py-2 bg-pink-500/20 hover:bg-pink-500/30 rounded-lg text-sm border border-pink-500/30 active:scale-90 transition-all"><i class="fa-solid fa-arrow-left"></i> Left</button>
-                    <button onclick="moveBasket(25)" class="px-5 py-2 bg-pink-500/20 hover:bg-pink-500/30 rounded-lg text-sm border border-pink-500/30 active:scale-90 transition-all">Right <i class="fa-solid fa-arrow-right"></i></button>
-                </div>
-            </div>
-
-            <!-- Game 4 Frame: Love Memory Match -->
-            <div id="gameDiv4" class="game-content-panel hidden text-center py-4 bg-slate-950/60 rounded-xl border border-pink-500/10 p-4">
-                <h4 class="text-xs font-bold text-pink-300 uppercase tracking-widest mb-1">Game 4: Love Memory Match 🧩</h4>
-                <p class="text-[11px] text-slate-300 mb-3 font-bengali">একই রকম ভালোবাসার ইমোজিগুলো জোড়ায় জোড়ায় মিলিয়ে মেমরি টেস্ট শেষ করো!</p>
-                <div class="grid grid-cols-4 gap-2 mx-auto max-w-[240px]" id="memoryGrid">
-                    <!-- Dynamic Grid JS -->
-                </div>
-            </div>
-
-            <!-- Game 5 Frame: Catch Kiss -->
-            <div id="gameDiv5" class="game-content-panel hidden text-center py-4 bg-slate-950/60 rounded-xl border border-pink-500/10 p-4">
-                <h4 class="text-xs font-bold text-pink-300 uppercase tracking-widest mb-1">Game 5: Tap Flying Lips 👄</h4>
-                <p class="text-[11px] text-slate-300 mb-3 font-bengali">উড়ে বেড়ানো ঠোঁটগুলোকে ক্লিক করে ধরে ফেলো আর মিষ্টি "mwah" শব্দ শুনো!</p>
-                <div class="relative w-full h-40 bg-slate-900 rounded-xl overflow-hidden border border-slate-700 mx-auto max-w-[280px]" id="flyingLipsArea">
-                    <button id="flyingLipsBtn" onclick="tapFlyingLips()" class="absolute px-3 py-1.5 bg-gradient-to-r from-pink-500 to-red-500 text-white rounded-full text-xs font-bold hover:scale-110 active:scale-95 transition-all" style="left: 30%; top: 30%;">💋 Kiss Me!</button>
-                    <span id="lipsCountText" class="absolute bottom-2 left-2 text-[9px] text-slate-400 uppercase tracking-wider font-mono">Taps: 0/5</span>
-                </div>
             </div>
         </section>
 
@@ -313,7 +190,6 @@
             </div>
         </section>
 
-        <!-- Atika's Mood Care Center -->
         <section class="glass-card rounded-2xl p-6 border border-pink-500/20 shadow-xl relative overflow-hidden">
             <div class="absolute top-0 right-0 p-3 opacity-10">
                 <i class="fa-solid fa-heart-pulse text-5xl text-pink-500"></i>
@@ -355,7 +231,6 @@
             </div>
         </section>
 
-        <!-- Main highlight banner of your deep love promise -->
         <section class="relative">
             <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-amber-500 to-pink-500 opacity-20 blur-lg"></div>
             <div class="relative glass-card rounded-2xl p-6 text-center border-t-2 border-b-2 border-amber-400/40">
@@ -417,7 +292,6 @@
             </div>
         </section>
 
-        <!-- Nicknames section -->
         <section class="glass-card rounded-2xl p-6 border border-indigo-500/20 shadow-xl">
             <div class="text-center mb-5">
                 <span class="px-3 py-1 bg-indigo-500/10 text-indigo-400 text-[10px] font-bold uppercase tracking-widest rounded-full border border-indigo-500/30">Your Special Titles</span>
@@ -651,7 +525,6 @@
             </div>
         </section>
 
-        <!-- Confession Envelope -->
         <section class="w-full">
             <div id="envelopeContainer" class="envelope-wrapper relative bg-slate-900/60 backdrop-blur-md rounded-2xl border-2 border-amber-500/20 overflow-hidden cursor-pointer p-5 transition-all hover:border-amber-500/50 shadow-2xl" onclick="toggleLetter()">
                 <div class="flex items-center justify-between mb-4">
@@ -801,7 +674,6 @@
             </div>
         </section>
 
-        <!-- Forgiveness Request Board -->
         <section class="bg-indigo-950/40 backdrop-blur-md rounded-3xl p-6 shadow-2xl border-2 border-pink-500/20 text-center relative overflow-hidden neon-glow-pink">
             <h3 class="text-2xl font-bold text-yellow-200 font-love mb-1">Do you forgive me, Atika Sona?</h3>
             <p class="text-xs text-pink-300 mb-6 font-semibold font-bengali">তোমার এই অভিমানী মুখটা আমি সহ্য করতে পারি না। ক্ষমা করবে তো? 🥺</p>
@@ -819,7 +691,6 @@
             <div id="escapeReaction" class="h-4 mt-3 text-xs text-pink-300 font-bold transition-all duration-300 opacity-0 italic font-bengali"></div>
         </section>
 
-        <!-- Quote section -->
         <section class="text-center">
             <button onclick="showRandomQuote()" class="px-6 py-3 bg-gradient-to-r from-slate-900 to-indigo-950 hover:from-indigo-950 hover:to-slate-900 border border-amber-500/30 rounded-full text-xs text-yellow-300 font-bold shadow-md transition-all hover:scale-105 active:scale-95 inline-flex items-center gap-2 tracking-wider">
                 <i class="fa-solid fa-wand-magic-sparkles animate-pulse"></i> Lantern Message for Atika
@@ -831,7 +702,6 @@
 
     </main>
 
-    <!-- FOOTER -->
     <footer class="w-full text-center py-6 z-10 mt-10 border-t border-indigo-500/10">
         <p class="text-xs text-slate-500 font-semibold font-love tracking-wider">Endlessly waiting for my star, Atika Sona 💖🪐</p>
     </footer>
@@ -858,7 +728,6 @@
         </div>
     </div>
 
-    <!-- AUDIO ENGINE & INTERACTIVE JAVASCRIPT LOGIC -->
     <script>
         const loveQuotes = [
             "আমি তোমাকে কখনো অন্য কারো হতে দিতে চাই না, তোমার সাথে বৃদ্ধ হতে চাই। 👵👴❤️",
@@ -892,15 +761,6 @@
             tired: "অনেক ক্লান্ত লাগছে সোনা পাখি? 😴 চোখ বন্ধ করে একটু আরাম করো। আমার মন থেকে তোমার জন্য অনেক উষ্ণ জড়িয়ে ধরা আর কপালে হাজারো চুমু পাঠাচ্ছি। মিষ্টি স্বপ্ন দেখো! 💤🌟"
         };
 
-        const kissLevels = [
-            { badge: "Level 1: Gentle Peck", desc: "কপালে আলতো মিষ্টি স্নেহময় কিস! 👶🌸" },
-            { badge: "Level 2: Cute Cheek Kiss", desc: "গালে মিষ্টি করে আদুরে নরম চুমু! 😘" },
-            { badge: "Level 3: Neck Nuzzle Hug", desc: "গলায় মুখ লুকিয়ে জড়িয়ে ধরে পরম মমতায় কিস! 🧣" },
-            { badge: "Level 4: Deep Passionate Kiss", desc: "ঠোঁটে ঠোঁট রেখে হারিয়ে যাওয়ার মতন পাগল করা চুমু! 💋🔥" },
-            { badge: "Level 5: Midnight Romantic Frenzy", desc: "বুকের মাঝে শক্ত করে জাপটে ধরে সারা রাত অনন্ত রোমান্স ও চুমু! 🛏️❤️✨" }
-        ];
-
-        // Starry particle animation setup
         const canvas = document.getElementById('starryCanvas');
         const ctx = canvas.getContext('2d');
         let hearts = [];
@@ -1057,317 +917,6 @@
             requestAnimationFrame(animate);
         }
 
-        // --- ROMANCE CHAMBER ENGINE ---
-        function updateKissPreview() {
-            const rangeVal = document.getElementById('kissRange').value;
-            const level = kissLevels[rangeVal - 1];
-            document.getElementById('kissIntensityBadge').innerText = level.badge;
-            document.getElementById('kissIntensityText').innerText = level.desc;
-        }
-
-        function sendVirtualKiss() {
-            const rangeVal = document.getElementById('kissRange').value;
-            const text = kissLevels[rangeVal - 1].desc;
-            
-            // Pop kiss particles from center of view
-            triggerHeartBurst(window.innerWidth / 2, window.innerHeight / 2, 40, "rgba(239, 68, 68,");
-            
-            // Send floating lip elements
-            for (let i = 0; i < 20; i++) {
-                const x = Math.random() * window.innerWidth;
-                const y = window.innerHeight + 50;
-                hearts.push(new HeartParticle(x, y, Math.random() * 20 + 10, (Math.random() - 0.5) * 4, -(Math.random() * 3 + 2), 0.9, "", "💋"));
-            }
-
-            playSuccessChime();
-            showFloatingToast(`💋 Kiss Sent: ${text}`);
-        }
-
-        function triggerRomanceEffect(type) {
-            if (type === 'hug') {
-                triggerHeartBurst(window.innerWidth / 2, window.innerHeight / 2, 35, "rgba(234, 179, 8,");
-                showFloatingToast("🤗 Sending Warm Embrace to Atu Paki!");
-                playSoftChords();
-            } else if (type === 'forehead') {
-                triggerHeartBurst(window.innerWidth / 2, window.innerHeight / 2, 35, "rgba(168, 85, 247,");
-                showFloatingToast("👶❤️ Infinite Respect & Pure Forehead Kiss Sent!");
-                playSuccessChime();
-            }
-        }
-
-        function showFloatingToast(msg) {
-            const toast = document.createElement('div');
-            toast.className = "fixed bottom-10 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-red-500 via-pink-500 to-amber-500 text-white font-bold py-3 px-6 rounded-full shadow-2xl z-50 text-xs tracking-wider text-center max-w-[90%] font-bengali transition-all duration-300 opacity-0";
-            toast.innerText = msg;
-            document.body.appendChild(toast);
-            
-            setTimeout(() => { toast.classList.remove('opacity-0'); }, 10);
-            setTimeout(() => {
-                toast.classList.add('opacity-0');
-                setTimeout(() => { toast.remove(); }, 300);
-            }, 3000);
-        }
-
-        // --- 5 ROMANTIC MINI-GAMES INTERFACE ---
-        let currentTab = 1;
-        function switchGameTab(tabNum) {
-            // Hide all game content frames
-            for (let i = 1; i <= 5; i++) {
-                document.getElementById(`gameDiv${i}`).classList.add('hidden');
-                document.getElementById(`tabBtn${i}`).className = "px-3 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap bg-slate-900 text-slate-400 hover:bg-slate-800";
-            }
-            
-            // Show active game content frame
-            document.getElementById(`gameDiv${tabNum}`).classList.remove('hidden');
-            document.getElementById(`tabBtn${tabNum}`).className = "px-3 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap bg-amber-500/20 text-amber-300 border border-amber-500/30";
-            currentTab = tabNum;
-
-            playSoftChords();
-
-            // Initialize game engines if needed
-            if (tabNum === 2) initScratchCard();
-            if (tabNum === 3) startHeartCatcher();
-            if (tabNum === 4) initMemoryGrid();
-            if (tabNum === 5) initFlyingLips();
-        }
-
-        // GAME 1: Petal Plucking Logic
-        let pluckedCount = 0;
-        function pluckPetal(btn, id) {
-            btn.style.opacity = '0';
-            btn.style.pointerEvents = 'none';
-            pluckedCount++;
-            
-            playTone(400 + (pluckedCount * 100), 'sine', 0.2, 0, 0.1);
-            
-            const results = [
-                "সে তোমাকে ভালোবাসে! ❤️",
-                "সে তোমাকে অনেক অনেক ভালোবাসে! 🥰",
-                "সে তোমাকে কিস করতে চায়! 💋",
-                "সে সারাজীবন তোমার সাথে বৃদ্ধ হতে চায়! 👵👴",
-                "সে তোমার মনের চিরন্তন রাণী! 👑",
-                "তুমি তার বিশ্বব্রহ্মাণ্ডের সবচেয়ে মিষ্টি সোনা পাখি! 🌌❤️"
-            ];
-
-            const predText = document.getElementById('petalPrediction');
-            if (pluckedCount < 6) {
-                predText.innerText = `"${results[pluckedCount - 1]}"`;
-                triggerHeartBurst(window.innerWidth / 2, window.innerHeight / 2, 4);
-            } else {
-                predText.innerText = `"সব পাপড়ি সাক্ষ্য দিচ্ছে - Atika Sona-র কপালে এখনই চুমু দেওয়া আবশ্যক! 💋👑"`;
-                triggerHeartBurst(window.innerWidth / 2, window.innerHeight / 2, 35, "rgba(244, 63, 94,");
-                playSuccessChime();
-            }
-        }
-
-        // GAME 2: Secret Scratch Card Logic
-        let scratchCanvasInitialized = false;
-        function initScratchCard() {
-            if (scratchCanvasInitialized) return;
-            scratchCanvasInitialized = true;
-            resetScratchCard();
-        }
-
-        function resetScratchCard() {
-            const canvas = document.getElementById('scratchCanvas');
-            const container = canvas.parentElement;
-            canvas.width = container.clientWidth;
-            canvas.height = 160;
-            const ctx = canvas.getContext('2d');
-
-            // Cover with gradient overlay
-            const grad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-            grad.addColorStop(0, '#f43f5e');
-            grad.addColorStop(0.5, '#fb7185');
-            grad.addColorStop(1, '#eab308');
-            ctx.fillStyle = grad;
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            // Text Instructions on Overlay
-            ctx.fillStyle = '#ffffff';
-            ctx.font = 'bold 12px sans-serif';
-            ctx.textAlign = 'center';
-            ctx.fillText('CLICK & DRAG TO SCRATCH ME 🤫', canvas.width / 2, canvas.height / 2);
-
-            let isDrawing = false;
-            
-            function scratch(e) {
-                if (!isDrawing) return;
-                const rect = canvas.getBoundingClientRect();
-                const x = (e.clientX || e.touches[0].clientX) - rect.left;
-                const y = (e.clientY || e.touches[0].clientY) - rect.top;
-
-                ctx.globalCompositeOperation = 'destination-out';
-                ctx.beginPath();
-                ctx.arc(x, y, 16, 0, Math.PI * 2);
-                ctx.fill();
-
-                if (Math.random() > 0.8) {
-                    playTone(600, 'triangle', 0.05, 0, 0.05);
-                }
-            }
-
-            canvas.addEventListener('mousedown', () => isDrawing = true);
-            canvas.addEventListener('touchstart', () => isDrawing = true);
-            canvas.addEventListener('mouseup', () => isDrawing = false);
-            canvas.addEventListener('touchend', () => isDrawing = false);
-            canvas.addEventListener('mousemove', scratch);
-            canvas.addEventListener('touchmove', scratch);
-        }
-
-        // GAME 3: Atika's Heart Catcher Logic
-        let catcherScore = 0;
-        let catcherPos = 50; // percentage
-        let fallingTimer = null;
-        let fallingObj = null;
-        let fallingX = 50;
-        let fallingY = 0;
-
-        function startHeartCatcher() {
-            catcherScore = 0;
-            document.getElementById('catcherScore').innerText = "CATCHES: 0/10";
-            if (fallingTimer) clearInterval(fallingTimer);
-            
-            fallingObj = document.getElementById('fallingItem');
-            fallingY = 0;
-            fallingX = Math.floor(Math.random() * 80) + 10;
-            fallingObj.style.left = `${fallingX}%`;
-            fallingObj.style.top = `${fallingY}px`;
-
-            fallingTimer = setInterval(() => {
-                fallingY += 4;
-                fallingObj.style.top = `${fallingY}px`;
-
-                // Check collision at the bottom
-                if (fallingY > 140) {
-                    const diff = Math.abs(fallingX - catcherPos);
-                    if (diff < 12) {
-                        catcherScore++;
-                        document.getElementById('catcherScore').innerText = `CATCHES: ${catcherScore}/10`;
-                        playTone(700, 'sine', 0.1, 0, 0.1);
-                        triggerHeartBurst(window.innerWidth / 2, window.innerHeight / 2, 4, "rgba(244, 63, 94,");
-                        
-                        if (catcherScore >= 10) {
-                            clearInterval(fallingTimer);
-                            document.getElementById('catcherScore').innerText = "💖 WINNER! 💖";
-                            showFloatingToast("🏆 সব ভালোবাসা লুফে নিলে! এবার আমার সামনাসামনি এসে সব চুমু আদায় করে নাও!");
-                            playSuccessChime();
-                        }
-                    }
-                    // Reset Falling Item
-                    fallingY = 0;
-                    fallingX = Math.floor(Math.random() * 80) + 10;
-                    fallingObj.style.left = `${fallingX}%`;
-                    fallingObj.innerText = Math.random() > 0.5 ? "💖" : "💋";
-                }
-            }, 30);
-        }
-
-        function moveBasket(offset) {
-            catcherPos += offset / 5;
-            if (catcherPos < 10) catcherPos = 10;
-            if (catcherPos > 90) catcherPos = 90;
-            document.getElementById('catcherBasket').style.left = `${catcherPos}%`;
-        }
-
-        // GAME 4: Memory Match Game Logic
-        let memoryDeck = ['💋', '💋', '💍', '💍', '👩‍❤️‍👨', '👩‍❤️‍👨', '🌹', '🌹', '🧸', '🧸', '🍫', '🍫', '👑', '👑', '🍷', '🍷'];
-        let matchedPairs = 0;
-        let flippedCards = [];
-
-        function initMemoryGrid() {
-            matchedPairs = 0;
-            flippedCards = [];
-            const grid = document.getElementById('memoryGrid');
-            grid.innerHTML = '';
-
-            // Shuffle
-            memoryDeck.sort(() => Math.random() - 0.5);
-
-            memoryDeck.forEach((emoji, index) => {
-                const card = document.createElement('button');
-                card.className = "aspect-square bg-indigo-950 border border-indigo-500/30 rounded-lg flex items-center justify-center text-xl cursor-pointer hover:bg-indigo-900 transition-all font-sans";
-                card.dataset.index = index;
-                card.dataset.emoji = emoji;
-                card.innerText = '❓';
-                card.onclick = () => flipCard(card);
-                grid.appendChild(card);
-            });
-        }
-
-        function flipCard(card) {
-            if (flippedCards.length >= 2 || card.innerText !== '❓') return;
-
-            card.innerText = card.dataset.emoji;
-            flippedCards.push(card);
-
-            playTone(500, 'triangle', 0.1, 0, 0.1);
-
-            if (flippedCards.length === 2) {
-                const [c1, c2] = flippedCards;
-                if (c1.dataset.emoji === c2.dataset.emoji) {
-                    matchedPairs++;
-                    triggerHeartBurst(window.innerWidth / 2, window.innerHeight / 2, 8, "rgba(16, 185, 129,");
-                    flippedCards = [];
-                    playTone(800, 'sine', 0.2, 0, 0.15);
-                    
-                    if (matchedPairs === 8) {
-                        showFloatingToast("🏆 Memory Match Winner! You unlocked My Infinite Soulmate Certificate!");
-                        playSuccessChime();
-                    }
-                } else {
-                    setTimeout(() => {
-                        c1.innerText = '❓';
-                        c2.innerText = '❓';
-                        flippedCards = [];
-                    }, 800);
-                }
-            }
-        }
-
-        // GAME 5: Catch Flying Lips Logic
-        let lipsTaps = 0;
-        let lipsTimer = null;
-        function initFlyingLips() {
-            lipsTaps = 0;
-            document.getElementById('lipsCountText').innerText = "Taps: 0/5";
-            moveFlyingLips();
-        }
-
-        function moveFlyingLips() {
-            const btn = document.getElementById('flyingLipsBtn');
-            const parent = document.getElementById('flyingLipsArea');
-            const maxX = parent.clientWidth - btn.clientWidth - 10;
-            const maxY = parent.clientHeight - btn.clientHeight - 10;
-
-            const randomX = Math.floor(Math.random() * Math.max(maxX, 10));
-            const randomY = Math.floor(Math.random() * Math.max(maxY, 10));
-
-            btn.style.left = `${randomX}px`;
-            btn.style.top = `${randomY}px`;
-        }
-
-        function tapFlyingLips() {
-            lipsTaps++;
-            document.getElementById('lipsCountText').innerText = `Taps: ${lipsTaps}/5`;
-            
-            // "Mwah" sound
-            playTone(880, 'sine', 0.15, 0, 0.2);
-            playTone(987, 'sine', 0.2, 0.05, 0.15);
-            
-            triggerHeartBurst(window.innerWidth / 2, window.innerHeight / 2, 10, "rgba(244, 63, 94,");
-
-            if (lipsTaps >= 5) {
-                showFloatingToast("💋 ৫ টা মিষ্টি চুমু সফলভাবে বাতাসে উড়ে সোনা পাখির গালে চলে গেল! mwah!");
-                playSuccessChime();
-                lipsTaps = 0;
-                document.getElementById('lipsCountText').innerText = "Taps: 0/5";
-            }
-            moveFlyingLips();
-        }
-
-        // --- END OF GAMES CODE ---
-
         let reasonIdx = 0;
         function generateNewReason() {
             reasonIdx = (reasonIdx + 1) % loveReasons.length;
@@ -1398,7 +947,6 @@
             if (moodKey === 'angry') color = "rgba(239, 68, 68,";
             if (moodKey === 'sad') color = "rgba(59, 130, 246,";
             if (moodKey === 'bored') color = "rgba(234, 179, 8,";
-            if (moodKey === 'sweet') color = "rgba(244, 63, 94,";
             if (moodKey === 'tired') color = "rgba(168, 85, 247,";
             
             triggerHeartBurst(window.innerWidth / 2, window.innerHeight / 2, 25, color);
@@ -1674,7 +1222,16 @@
         }
 
         function sendGift(emoji, notification) {
-            showFloatingToast(notification);
+            const toast = document.createElement('div');
+            toast.className = "fixed bottom-10 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-amber-500 to-pink-500 text-white font-bold py-2 px-5 rounded-full shadow-lg z-50 text-xs tracking-widest uppercase transition-all duration-300 opacity-0";
+            toast.innerText = notification;
+            document.body.appendChild(toast);
+            
+            setTimeout(() => { toast.classList.remove('opacity-0'); }, 10);
+            setTimeout(() => {
+                toast.classList.add('opacity-0');
+                setTimeout(() => { toast.remove(); }, 300);
+            }, 2000);
 
             for (let i = 0; i < 15; i++) {
                 const x = Math.random() * window.innerWidth;
@@ -1744,7 +1301,6 @@
             }, 200);
         }
 
-        // Web Audio Synthesizer Engine
         let audioCtx = null;
         let selectedTrack = 0;
 
